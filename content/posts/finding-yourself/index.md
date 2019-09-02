@@ -1,5 +1,5 @@
 ---
-title: How I fell in love with coding and myself in the roots of Himalays
+title: How I fell in love with coding & finding myself in the roots of Himalayas
 author: Chaduvula Prasanth
 date: 2019-08-24
 hero: ./images/hero.jpeg
