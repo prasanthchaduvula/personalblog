@@ -29,5 +29,6 @@ The temple site is on a large island bounded by the Kaveri River and Kollidam Ri
 The temple complex has been nominated as a UNESCO World Heritage Site and is in UNESCO's tentative list
 
 
+story continues......
 
 
