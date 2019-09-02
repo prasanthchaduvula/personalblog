@@ -5,7 +5,7 @@ module.exports = {
     siteUrl: `https://chaduvulaprasanth.netlify.com/`,
     description: `This is my description that will be used in the meta tags and important for search results`,
     hero: {
-      heading: `Let's Explore The Journey Of Life`,
+      heading: `Let's explore the journey of life`,
       maxWidth: 652,
     },
     social: [
