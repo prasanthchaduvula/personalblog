@@ -1,7 +1,7 @@
 ---
 title: Travelling 470 km per day on 100 cc bike to last land of India 
 author: Chaduvula Prasanth
-date: 2019-04-31
+date: 2019-09-01
 hero: ./images/hero.jpeg
 excerpt: A road trip from Madurai to Dhanushkodi (the last land of India) with my best friend on Hero Hf Deluxe 100cc bike.
 ---

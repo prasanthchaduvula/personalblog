@@ -1,34 +1,26 @@
 module.exports = {
   siteMetadata: {
-    title: `Novela by Narative`,
+    title: `Chaduvula Prasanth`,
     name: `Chaduvula Prasanth`,
-    siteUrl: `https://novela.narative.co`,
+    siteUrl: `https://chaduvulaprasanth.netlify.com/`,
     description: `This is my description that will be used in the meta tags and important for search results`,
     hero: {
-      heading: `Welcome dude lets explore the journey of life`,
+      heading: `Let's Explore The Journey Of Life`,
       maxWidth: 652,
     },
     social: [
       {
         name: `twitter`,
-        url: `https://twitter.com/narative`,
+        url: `https://twitter.com/chaduvula98`,
       },
       {
         name: `github`,
-        url: `https://github.com/narative`,
-      },
-      {
-        name: `instagram`,
-        url: `https://instagram.com/narative.co`,
+        url: `https://github.com/chaduvulaprasanth`,
       },
       {
         name: `linkedin`,
-        url: `https://www.linkedin.com/company/narative/`,
-      },
-      {
-        name: `dribbble`,
-        url: `https://dribbble.com/narativestudio`,
-      },
+        url: `https://www.linkedin.com/in/chaduvulaprasanth/`,
+      }
     ],
   },
   plugins: [
