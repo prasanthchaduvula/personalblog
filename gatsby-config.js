@@ -31,7 +31,7 @@ module.exports = {
         contentAuthors: "content/authors",
         basePath: "/",
         authorsPage: true,
-      },
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
