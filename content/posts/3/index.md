@@ -1,8 +1,8 @@
 ---
-title: A Guy In Middle of Indian Traditional Educational Society
+title: A Guy In the Middle of Indian Traditional Society
 author: Chaduvula Prasanth
 date: 2019-09-01
-hero: ./images/hero.jpeg
+hero: ./images/hero.jpg
 excerpt: if you fail in one destination, that doesn’t mean you have to die. life is a journey it's not a destination. live in moments and cherish them
 ---
 
