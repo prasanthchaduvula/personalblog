@@ -3,10 +3,12 @@ title: Creating things with great insight and making them remark worthy
 author: Chaduvula Prasanth
 date: 2019-11-20
 hero: ./images/create.jpg
-excerpt: Bites are Inspired from Mahesh Murthy.
+excerpt: 
 ---
 
 Creating anything from small pen to a million-dollar company or writing a program to a high rated blog post, everyone who wants to be dominant and stand out of the market should make products which are remark worthy.
+
+"Bites are Inspired from Mahesh Murthy"
 
 Whatever it is identify the problem, create the solution which will give you great insight and remark worthy
 
