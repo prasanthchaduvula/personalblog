@@ -2,7 +2,7 @@
 title: Creating things with great insight and making them remark worthy
 author: Chaduvula Prasanth
 date: 2019-11-20
-hero: 
+hero: ./images/create.jpg
 excerpt: Bites are Inspired from Mahesh Murthy.
 ---
 
