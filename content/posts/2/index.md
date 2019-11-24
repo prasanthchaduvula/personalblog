@@ -1,5 +1,5 @@
 ---
-title: Travelling 470 km per day on 100 cc bike to the last land of India 
+title: Travelling 470 km per day on 100 cc bike to the last land of India - part1
 author: Chaduvula Prasanth
 date: 2019-11-24
 hero: ./images/hero.jpeg
