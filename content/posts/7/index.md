@@ -55,6 +55,7 @@ another; // which shows us 200 as value
 ```
 
 About var, let and const
+
 var:
 
 1. We can declare a variable
@@ -91,24 +92,24 @@ var gender = "male";
 ```
 
 Variable naming:
-
 There are two limitations on variable names in JavaScript:
 The name must contain only letters, digits, or the symbols \$ and \_.
 The first character must not be a digit.
 eg:
 
 ```js
-  var firstName = "bran stark";
-  var you123 = 45;
+var firstName = "bran stark";
+var you123 = 45;
 
-  var 123test = "bran stark" // invalid because we can’t use number as first charcter;
-  var first-name = "bran stark" // invalid because we can’t use hyphen in variable names
+var 123test = "bran stark" // invalid because we can’t use number as first charcter;
+var first-name = "bran stark" // invalid because we can’t use hyphen in variable names
 ```
 
 If we want to declare names with more words normally we follow camelCase.
+eg:
 
 ```js
-eg: var yourFirstName;
+var yourFirstName;
 ```
 
 In naming variable case matters. if two variables with the same name but different case are different variables
@@ -120,13 +121,10 @@ var Name; // it is different variable from above
 ```
 
 Reserved names:
-
-we can’t use some names like function, new, let, class ... and there so many, we will find in javascript laterin our learning phase
+We can’t use some names like function, new, let, class ... and there so many, we will find in javascript laterin our learning phase
 
 Naming things in the right way:
-
 Always a variable name should be clean, readable and describing the data it stores.
-
 for example, we want to store a name in a variable.
 
 ```js
