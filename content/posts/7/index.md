@@ -62,18 +62,24 @@ var:
 2. We can assign a variable
 3. We can reassign a variable
 4. We can redeclare a variable
-5. old way of declaring a variable
+5. With var it intializes value of undefined in declaration mode
+6. It assigns value in execution mode
+7. old way of declaring a variable
 
 let:
 
 1. We can declare a variable
 2. We can assign a variable
 3. We can reassign a variable
+4. With let it won't intializes any value in declaration mode
+5. It assigns value in execution mode
 
 const:
 
 1. We can declare a variable
 2. We can assign a variable
+3. With const it won't intializes any value in declaration mode
+4. It assigns value in execution mode
 
 We can also declare multiple variables in one line:
 
