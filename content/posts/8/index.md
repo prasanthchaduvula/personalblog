@@ -12,13 +12,13 @@ It's a javascript library for building user interfaces
 **why react?**
 
 **1. Declarative**
-In the sense it renders particular components whenever our state(data) changes by itself. there is no need of us to call the render() for the particular views
+It renders particular components whenever our state(data) changes. there is no need of us to call the render() for the particular views
 
 **2. Component-based**
 For each state we can define components to compose them into UI and pass data through your app and keep the state out of the DOM.
 
 **3. learn once, write anywhere**
-Render the views in diffrent pages by using th same component
+Render the views in diffrent pages by using the same component
 
 let's write our first code in React
 
@@ -31,12 +31,13 @@ ReactDOM.render(
 );
 ```
 
-In this hello world we will learn about **React DOM**
+In this hello world, we will learn about **React DOM**
 
-**React DOM** is the glue between React and the DOM. When u want to show your react component on DOM for view. We need to use this ReactDOM.render(); from React Dom. React contains functionality utilised in web and mobile apps. ReactDOM functionality is utilised only in web apps.
+**React DOM**
+is the glue between React and the DOM. When you want to show your react component on DOM for view. We need to use this ReactDOM.render(); from React Dom. React contains functionality utilised in web and mobile apps. ReactDOM functionality is utilised only in web apps.
 
 **What is JSX**
-JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement() and/or appendChild() methods.
+It allows us to write HTML elements in JavaScript and place them in the DOM without any createElement() and/or appendChild() methods.
 JSX converts HTML tags into react elements.
 
 React doesn’t require JSX, but JSX makes it easier to write React applications.
@@ -79,13 +80,13 @@ in HTML
 
     <img src="" alt="">
 
-in JSX, In JSX, we have close each and every tag
+In JSX, we have to close each and every tag
 
     <img src="" alt=""/>
 
 **Rendering Elements**
 
-Elements are the smallest building blocks of React apps and element describes what you want to see on the screen:
+Elements are the smallest building blocks of React apps and describes what you want to see on the screen:
 
     const message = <h1>This is welcome meassge</h1>
 
@@ -146,5 +147,6 @@ as we know we can write a javascript inside a function and to write javascript i
     }
 
 we can declare multiple components for splitting a complex UI into small pieces.
+**props**
 To Send data from parent component to child component. we will use props.
 props means properties ). Props are readable only.
