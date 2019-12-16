@@ -58,28 +58,21 @@ About var, let and const
 
 var:
 
-1. We can declare a variable
-2. We can assign a variable
-3. We can reassign a variable
-4. We can redeclare a variable
-5. With var it intializes value of undefined in declaration mode
-6. It assigns value in execution mode
-7. old way of declaring a variable
+1. We can declare a variable & assign a value
+2. We can redeclare a variable & reassign a value
+3. With var, it initializes the value of undefined in declaration mode & it assigns value in execution mode
 
 let:
 
-1. We can declare a variable
-2. We can assign a variable
-3. We can reassign a variable
-4. With let it won't intializes any value in declaration mode
-5. It assigns value in execution mode
+1. We can declare a variable & assign a value
+2. We can reassign a value
+3. With let, it won’t initialize any value in declaration mode and It assigns value in execution mode
 
 const:
 
 1. We can declare a variable
-2. We can assign a variable
-3. With const it won't intializes any value in declaration mode
-4. It assigns value in execution mode
+2. We can assign a value
+3. With const, it won’t initialize any value in declaration mode and It assigns value in execution mode
 
 We can also declare multiple variables in one line:
 
