@@ -151,3 +151,5 @@ we can declare multiple components for splitting a complex UI into small pieces.
 **props**:
 To Send data from parent component to child component. we will use props.
 props means properties ). Props are readable only.
+
+[Learn about State & lifecycle, Handling Events, Conditional Rendering, Lists & Keys, Forms, Lifting State UP](https://chaduvulaprasanth.netlify.com/intro-to-react-part2)
