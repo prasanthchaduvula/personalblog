@@ -147,6 +147,7 @@ as we know we can write a javascript inside a function and to write javascript i
     }
 
 we can declare multiple components for splitting a complex UI into small pieces.
-**props**
+
+**props**:
 To Send data from parent component to child component. we will use props.
 props means properties ). Props are readable only.
