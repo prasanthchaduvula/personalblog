@@ -1,8 +1,8 @@
 ---
-title: Intro to React
+title: Intro to React part1
 author: Chaduvula Prasanth
-date: 2019-12-18
-hero: ./images/react.png
+date: 2019-12-16
+hero: ./images/react1.png
 excerpt: We will learn about what is react and why react?, hello world, React DOM, JSX, Component and props
 ---
 
