@@ -3,7 +3,7 @@ title: Intro to React part2
 author: Chaduvula Prasanth
 date: 2019-12-17
 hero: ./images/react2.png
-excerpt: Learn about State & lifecycle, Handling Events, Conditional Rendering, Lists & Keys, Forms, Lifting State UP
+excerpt: Learn about State & lifecycle, Handling Events, Conditional Rendering, Lists & Keys, Forms, Lifting State UP, Compositon vs Inheritance, Thinking in React
 ---
 
 Before reading this blog [learn about what is react and why react?, hello world, React DOM, JSX, Component and props](https://chaduvulaprasanth.netlify.com/intro-to-react-part1)
@@ -12,8 +12,7 @@ Before reading this blog [learn about what is react and why react?, hello world,
 
 ### What is state?
 
-state is a combination of data and view
-The core of every React component is its state. The state determines what the component looks like, and you can update that as you go.
+state is a combination of data and view. The core of every React component is its state. The state determines what the component looks like, and you can update that as you go.
 Whenever state changes, component re-renders (data changes accordingly view changes).
 creating a component with state:
 
@@ -211,3 +210,111 @@ ReactDOM.render(
 
 Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
 Keys used within arrays should be unique among their siblings. However they don’t need to be globally unique. We can use the same keys when we produce two different arrays
+
+## Forms
+
+Handling forms is about how you handle the data when it changes value or gets submitted.
+
+In HTML, form data is usually handled by the DOM.
+
+In React, form data is usually handled by the components.
+
+When the data is handled by the components, all the data is stored in the component `state`.
+
+You can control changes by adding event handlers in the `onChange` attribute:
+
+### controlled components:
+
+In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with `setState()`  
+We can combine the two by making the React state be the “single source of truth”. Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a “controlled component”.
+
+For example, we can write the form as a controlled component:
+
+```
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
+[to know select tags, multiple inputs read this blog](https://reactjs.org/docs/forms.html)
+
+## Lifting State Up
+
+if we want to manupulate the state in children component and the same state is going to be shared with different children components, then we have to lift the state up and keep it in the immediate parent from where children componets can share the state. [for more details read the original documentation](https://reactjs.org/docs/lifting-state-up.html)
+
+## Composition vs Inheritance
+
+### inheritance :
+
+When a child class derives properties from it’s parent class, we call it inheritance
+
+### composition:
+
+React recommends composition. Instead of inheriting properties from a base class, it describes a class that can reference one or more objects of another class as instances.
+Example:
+
+```
+function Dialog(props) {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        {props.title}
+      </h1>
+      <p className="Dialog-message">
+        {props.message}
+      </p>
+    </FancyBorder>
+  );
+}
+
+function WelcomeDialog() {
+  return (
+    <Dialog
+      title="Welcome"
+      message="Thank you for visiting our spacecraft!" />
+  );
+}
+```
+
+for more details read [composition vs inheritance](https://reactjs.org/docs/composition-vs-inheritance.html)
+
+## Thinking in React
+
+React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
+
+One of the many great parts of React is how it makes you think about apps as you build them.
+
+To make any product or app. follow these :
+
+1. Design mockups or wireframes
+2. Break the UI into component hierarchy. A component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+3. Build A Static Version in React . To build a static version of your app that renders your data model, you’ll want to build components that reuse other components and pass data using _props_. _props_ are a way of passing data from parent to child. If you’re familiar with the concept of _state_, **don’t use state at all** to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don’t need it.
+4. Identify The Minimal (but complete) Representation Of UI State. To make your UI interactive, you need to be able to trigger changes to your underlying data model. React achieves this with **state**. you first need to think of the minimal set of mutable state that your app needs. The key here is [DRY: _Don’t Repeat Yourself_](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
+5. Identify Where Your State Should Live. Identify every component that renders something based on that state. Find a common owner component (a single component above all the components that need the state in the hierarchy).
