@@ -18,16 +18,13 @@ create a basic app using create-react-app tryrouting ( I named it as tryrouting)
 once you have done it.
 make a folder structure like this (it's better to follow convention)
 
-- src
-
-  - stylesheet //folder
-  - components //folder
-
-    - App.js //inside component folder
-    - Articles.js //inside component folder
-    - Home.js // inside component folder
-
-  - index.js // inside src folder but outside component folder
+    src
+        -   stylesheet
+        -   components
+    		    -   App.js
+    		    -   Articles.js
+    		    -   Home.js
+    	-   index.js   // inside src folder but outside component folder
 
 Now, open your index js.
 before writing the code install React Router Dom using npm i react-router-dom
