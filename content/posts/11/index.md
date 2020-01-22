@@ -8,8 +8,7 @@ excerpt: Learn what is Authentication, Authentication and difference between the
 
 # Authentication vs Authorization
 
-Authentication and authorization used for protecting applications
-authentication is the process of verifying who a user is and authorization is the process of verifying what they have access to
+Authentication and authorization used for protecting applications. authentication is the process of verifying who a user is and authorization is the process of verifying what they have access to
 
 ## Authentication
 
@@ -20,8 +19,8 @@ authentication is the process of verifying who a user is and authorization is th
 
 ## Authorization
 
-- Determine whether the authenticated user has access to the particular and usually done after successful authentication
+- Determine whether the authenticated user has access to the particular resources and usually done after successful authentication
 - Generally, transmits info through an Access Token
-- example: As you are member in facebook group, to change the group info you should have authorization to update the group info ( group admin have special authorization)
+- example: As you are member in facebook group, you should have authorization to update the group info ( group admin have special authorization)
 
 In short, access to a resource is protected by both authentication and authorization. If you can't prove your identity, you won't be allowed into a resource. And even if you can prove your identity, if you are not authorized for that resource, you will still be denied access.
