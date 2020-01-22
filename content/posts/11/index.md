@@ -1,7 +1,7 @@
 ---
 title: Authentication vs Authentication
 author: Chaduvula Prasanth
-date: 2019-01-21
+date: 2020-01-21
 hero: ./images/auth.png
 excerpt: Learn what is Authentication, Authentication and difference between them
 ---
