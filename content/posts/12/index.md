@@ -18,8 +18,6 @@ It helps you write applications that behave consistently, run in different envir
 
 You can use Redux together with [React](https://reactjs.org/), or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of addons available.
 
-#### Installation
-
 ## Why Redux
 
 - As the requirements for JavaScript single-page applications have become increasingly complicated, **our code must manage more state than ever before**. This state can include server responses and cached data, as well as locally created data that has not yet been persisted to the server. UI state is also increasing in complexity, as we need to manage active routes, selected tabs, spinners, pagination controls, and so on.
@@ -28,7 +26,7 @@ You can use Redux together with [React](https://reactjs.org/), or with any other
 - In **React** Managing a local state in every component is not easy, when ever you want to access the state in children component, you have to access through porps which itself creates a problem of props drilling as data flow downwards in React
 - **Redux** allows you to manage the state of the application via a unidirectional flow where a child component can directly access the state from the redux store instead of getting state changes from parent components.
 
-To use **Redux** in **React** application we have to install redux which is available as a package on NPM
+To use **Redux** application we have to install redux which is available as a package on NPM
 
     npm install redux
 
@@ -43,9 +41,7 @@ To use **Redux** in **React** application we have to install redux which is avai
 #### How the flow works in the application side
 
 when ever user interacts with the application ( React component)
-
 then it goes to action -> reducers -> store -> React component
-
 first we have dispatch an action
 
 #### ACTION CREATORS:
@@ -137,8 +133,6 @@ Folder structure in our **React** application
     	     -counter.jsx
         >index.js
         >types.js
-
-
 
 Lets go to the index.js
 
