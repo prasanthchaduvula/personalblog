@@ -20,7 +20,7 @@ _The web is a cycle of requests and responses that flow between clients and serv
 6.  The browser sends requests for additional objects embedded in HTML (images, css, JavaScript) and repeats steps 3-5.
 7.  Once the page is loaded, the browser sends further async requests as needed.
 
-<img src="./images/flow.png" alt="request response flow">
+<img src="./images/flow.png" alt="request response flow"/>
 
 Before discussing **what happens after hitting the URL**, we must go through what a URL actually is, and what different parts of the URL mean - right? Without wasting any time, let’s understand more about URLs.
 
