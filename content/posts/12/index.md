@@ -41,8 +41,7 @@ To use **Redux** application we have to install redux which is available as a pa
 #### How the flow works in the application side
 
 when ever user interacts with the application ( React component)
-then it goes to action -> reducers -> store -> React component
-first we have dispatch an action
+then it goes to action -> reducers -> store -> React component.
 
 #### ACTION CREATORS:
 
