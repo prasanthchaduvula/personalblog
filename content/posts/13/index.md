@@ -8,8 +8,8 @@ excerpt: What is HTTP request, what happens when you hit an enter url, request r
 
 # Redux Flow
 
-<img src="./images/requestresponsecycle.png"
-alt="Markdown Monster icon"/>
+<img src="./images/flow.png"
+alt="req res cycle"/>
 
 ## Getting Started with Redux
 
