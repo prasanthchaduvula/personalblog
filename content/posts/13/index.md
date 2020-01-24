@@ -6,293 +6,96 @@ hero: ./images/requestresponsecycle.png
 excerpt: What is HTTP request, what happens when you hit an enter url, request response cycle
 ---
 
-# Redux Flow
+## Full stack request response cycle
 
-<img src="./images/flow.png"
-alt="req res cycle"/>
+What will happen a user opens his browser, types in a URL, and presses Enter.
 
-## Getting Started with Redux
+_The web is a cycle of requests and responses that flow between clients and servers._
 
-Redux is a predictable state container for JavaScript apps.
+1.  You enter a URL into a web browser
+2.  The browser looks up the IP address for the domain name via DNS
+3.  The browser sends a HTTP _request_ to the server
+4.  The server sends back a HTTP _response_
+5.  The browser begins rendering the HTML
+6.  The browser sends requests for additional objects embedded in HTML (images, css, JavaScript) and repeats steps 3-5.
+7.  Once the page is loaded, the browser sends further async requests as needed.
 
-It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience, such as [live code editing combined with a time traveling debugger](https://github.com/reduxjs/redux-devtools).
+<img src="./images/flow.png" alt="request response flow">
 
-You can use Redux together with [React](https://reactjs.org/), or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of addons available.
+Before discussing **what happens after hitting the URL**, we must go through what a URL actually is, and what different parts of the URL mean - right? Without wasting any time, let’s understand more about URLs.
 
-## Why Redux
+**URL – Uniform Resource Locator**
 
-- As the requirements for JavaScript single-page applications have become increasingly complicated, **our code must manage more state than ever before**. This state can include server responses and cached data, as well as locally created data that has not yet been persisted to the server. UI state is also increasing in complexity, as we need to manage active routes, selected tabs, spinners, pagination controls, and so on.
+If you look into its full form, then it is self explanatory: it has the location of the resources which we want to access. It is an **address of the place** where we want to go to interact with or find information.
+Now, we know what a URL is but we still don’t know about the parts of a URL. Let’s go!
 
-- Managing this ever-changing state is hard. If a model can update another model, then a view can update a model, which updates another model, and this, in turn, might cause another view to update. At some point, you no longer understand what happens in your app as you have **lost control over the when, why, and how of its state.** When a system is opaque and non-deterministic, it's hard to reproduce bugs or add new features.
-- In **React** Managing a local state in every component is not easy, when ever you want to access the state in children component, you have to access through porps which itself creates a problem of props drilling as data flow downwards in React
-- **Redux** allows you to manage the state of the application via a unidirectional flow where a child component can directly access the state from the redux store instead of getting state changes from parent components.
+Let’s take an example:
 
-To use **Redux** application we have to install redux which is available as a package on NPM
+[https://www.example.com/page1](https://www.example.com/page1)
 
-    npm install redux
+Here, the first part is **‘https’**. This basically tells the browser which protocol it should use. It can be **http, https, ftp,** etc. A **protocol** is a **set of rules** that browser use for communication over the network. **'https'** is basically a **secure version**, i.e. information is exchanged in a secure way. The second part **www.example.com** is a **domain name**.
 
-## Flow
+**Difference between URL and Domain Name**
 
-1.  When an user interacts with application, an action is dispatched
-2.  The particular dispatched action goes to reducers and manipulates it
-3.  A new state will be updated on the store
-4.  Accordingly react component updates (rerenders)
-5.  View changes on the user application
+The major difference between both is that the **URL is a complete address**. URL tells about the method through which information should exchange, the path after reaching that website. Whereas the **domain name is part of a URL**.
 
-#### How the flow works in the application side
+**Domain Name Server (DNS)**
 
-when ever user interacts with the application ( React component)
-then it goes to action -> reducers -> store -> React component.
+Domain Name Server (DNS) matches “wsvincent.com” to an IP address
 
-#### ACTION CREATORS:
+Why can’t we use IP address to get content of the website?
 
-These are exactly that—functions that create actions. It's easy to conflate the terms “action” and “action creator”, so do your best to use the proper term.
-in Redux, action creators simply return an action:
+Yes! You can **use IP addresses** to **get content** of the website but really!.. Would you be able to remember each website’s associated IP address? Obviously not! It’s **hard** to **remember the IP address** of every website. That’s why domain names came into the market.
 
-    function Doincrement(){
-        return  {
-    		type: "increment"
-    		payload:"value"
-    	}
-    }
+You can relate it to your contact list. You can’t remember every person’s number, but you can remember their name. Same concept applies here as well. You **can’t remember** those scary **IP addresses**, but you can easily **remember** **domain names**.
 
-#### ACTION:
+1. After hitting the URL, the **browser cache** is checked. As browser maintains its DNS records for some amount of time for the websites you have visited earlier. Hence, firstly, DNS query runs here to find the IP address associated with the domain name.
 
-An object that contains information about how we want to change some data within our central state
+2. The second place where DNS query runs in **OS cache** followed by **router cache**.
 
-    {
-    	type: "increment"
-    	payload:"value"
-    }
+3. If in the above steps, a DNS query does not get resolved, then it takes the help of resolver server. Resolver server is nothing but your ISP (Internet service provider). The query is sent to ISP where DNS query runs in **ISP cache.**
 
-#### DISPATCH:
+4. If in 3rd steps as well, no results found, then request sends to **top or root server** of the DNS hierarchy. There it never happens that it says no results found, but actually it tells, from where this information you can get. If you are searching IP address of the top level domain (.com,.net,.Gov,. org). It tells the resolver server to search **TLD server** (Top level domain).
 
-A function that takes in an _action_, makes copies of the _action_, and sends them out to the _reducers_.
+5. Now, resolver asks TLD server to give IP address of our domain name. TLD stores address information of domain name. It tells the resolver to ask it to **Authoritative Name server.**
 
-#### REDUCER:
+6. The authoritative name server is responsible for knowing everything about the domain name. Finally, resolver (ISP) gets the IP address associated with the domain name and sends it back to the browser.
 
-A pure function that takes in an _action_ and some existing data, changes the data according to the type and payload of the _action_, and then sends the updated data to the state.
+After getting an IP address, resolver stores it in its cache so that next time, if the same query comes then it does not have to go to all these steps again. It can now provide IP address from their cache.
 
-**Reducers** specify how the application's state changes in response to actions sent to the store. Remember that actions only describe _what happened_, but don't describe how the application's state changes.
-**State**
-An object that serves as the central repository of all data from the _reducers_.
+**TCP connection initiates with the server by Browser**
 
-#### STORE
+Once the **IP address** of the computer (where your website information is there) is **found**, it **initiates connection** with it. To communicate over the network, **internet protocol** is followed. **TCP/IP** is most common protocol. A connection is built between two using a process called **‘TCP 3-way handshake’**. Let’s understand the process in brief:
 
-The **Store** is the object that brings them together. The store has the following responsibilities:
+1. A client computer sends a **SYN message** means, whether second computer is open for new connection or not.
 
-- Holds application state;
-- Allows access to state via [`getState()`](https://redux.js.org/api/store#getState);
-- Allows state to be updated via [`dispatch(action)`](https://redux.js.org/api/store#dispatchaction);
-- Registers listeners via [`subscribe(listener)`](https://redux.js.org/api/store#subscribelistener);
-- Handles unregistering of listeners via the function returned by [`subscribe(listener)`](https://redux.js.org/api/store#subscribelistener).
+2. Then **another computer**, if open for new connection, it sends **acknowledge message** with SYN message as well.
 
-It's important to note that you'll only have a single store in a Redux application. When you want to split your data handling logic, you'll use [reducer composition](https://redux.js.org/basics/reducers#splitting-reducers) instead of many stores.
+3. After this, **first computer** receives its message and acknowledge by **sending** an **ACK message.**
 
-It's easy to create a store if you have a reducer. we use [`combineReducers()`](https://redux.js.org/api/combinereducers) to combine several reducers into one. We will now import it, and pass it to [`createStore()`](https://redux.js.org/api/createstore).
+**What is an HTTP request?**
 
-### Usage with react
+A HTTP request is a text string generated by the client and sent to the server containing the specifications of the resource the client is asking for. A resource is anything that can accessed via the web. The HTTP request communicates _which_ resource a client wants to interact with and _how_ the client wants to interact with it, along with some metadata held in the header related to the request.
 
-#### React-Redux
+The resource the client wants to interact with is communicated through the URL that is sent with the request. For example, if a user entered [http://twitter.com](http://google.com/) into their web browser, the web browser would send a request to the server looking for the Twitter resource.
 
-With React-Redux, we use some components and functions to tie React and Redux together: _Store_, _Provider_, and _Connect_.
+**What are the different types of request methods that can be included in an HTTP request?**
 
-#### STORE:
+How the user wants to interact with the resource is communicated through the request method. Four of the most common request methods are GET, POST, PUT, and DELTE.
 
-The _Store_ contains the consolidated reducers and the state.
+GET requests generally ask for the resource to be returned unchanged. Sending a request to for the homepage of Twitter would be a GET request.
 
-#### PROVIDER:
+POST requests are used to make a submission to the resource. This type of request would typically ask the server to store new information, for example by writing it to a database. Posting a new tweet would be an example of a POST request.
 
-The _Provider_ is a component that has a reference to the _Store_ and provides the data from the _Store_ to the component it wraps.
+PUT requests are used to update a resource. Editing a tweet would be an example of a PUT request.
 
-#### CONNECT:
+DELETE requests are used to remove a resource. For example, deleting a tweet would be an example of a DELETE request
 
-_Connect_ is a function communicates with the _Provider_. Whatever component we wrap with _Connect_, that component will be able to get changes in the _Store_ state from the _Provider_.
+**What is an HTTP response?**
 
-We can configure _Connect_ to get just the part of the data we want from the _Provider_. _Connect_ passes this down as props into the wrapped components.
+An HTTP response is what is sent by a server to a client in response to an HTTP request. These responses contain a status code and if the request was successful, the requested resource. An example status code for a successful request would be “200” and an example status code for an unsuccessful request would be “404”. Other common status codes include “300” for redirects and “500” for server errors.
 
-The flow with react-redux looks like this
+**Request Response Process**
 
-1.  Create the _Provider_
-2.  Pass it a reference to our Redux _Store_
-3.  Wrap any component that needs to interact with the _Store_ with _Connect_
-4.  _Connect_ passes down the different pieces of state and any action creators we need as props down to the wrapped component.
-
-### Example : counter app in react with redux [The live demo of the counter app is here](https://counterinreactredux.netlify.com/)
-
-Folder structure in our **React** application
-
-    -> src
-        >state
-    	    >actions
-    		    - index.js
-    		>reducers
-    			-index.js
-    		>store.js
-        >components
-    	     -counter.jsx
-        >index.js
-        >types.js
-
-Lets go to the index.js
-
-    // index.js
-
-    import  React  from  'react';
-    import { render } from  'react-dom';
-    import { Provider } from  'react-redux';
-    import  store  from  './state/store';
-    import  Counter  from  './components/Counter';
-
-    render(
-    <Provider  store={store}>
-    <Counter  />
-    </Provider>,
-    document.getElementById('root')
-    );
-
-in types.js
-
-    //types.js
-
-    export  const  INCREMENT = 'increment';
-    export  const  DECREMENT = 'decrement';
-    export  const  RESET = 'reset';
-    export  const  STEP = 'step';
-    export  const  MAX = 'max';
-
-in actions/index.js
-
-    // actions/index.js
-
-    import { INCREMENT, DECREMENT, RESET, STEP, MAX } from  '../../types';
-
-    export  function  DoIncrement() {
-        return { type:  INCREMENT };
-    }
-
-    export  function  DoDecrement() {
-        return { type:  DECREMENT };
-    }
-
-    export  function  DoReset() {
-        return { type:  RESET };
-    }
-
-    export  function  DoStep(e) {
-        return { type:  STEP, payload:  e };
-    }
-    export  function  DOMax(e) {
-        return { type:  MAX, payload:  e };
-    }
-
-in reducers/index.js
-
-    //reducers/index.js
-
-    import { INCREMENT, DECREMENT, RESET, STEP, MAX } from  '../../types';
-
-    let  intialState = {
-        count:  0,
-        step:  1,
-        max:  40
-    };
-
-    function  counter(state = intialState, action) {
-
-        switch (action.type) {
-
-    	    case  INCREMENT:
-
-    		    if (state.count < state.max) {
-    			    return { ...state, count:  state.count + state.step };
-    		    } else {
-    				alert(`you can't exceed more than ${state.max}`);
-    			    return  state;
-    		    }
-    	    case  DECREMENT:
-    		    if (state.count > 0) {
-    			    return { ...state, count:  state.count - state.step };
-    		    } else {
-    			    alert("you can't go below 0");
-    			    return  state;
-    		    }
-    	    case  RESET:
-    		    return { ...state, count:  0 };
-    	    case  STEP:
-    		    return { ...state, step:  action.payload };
-    	    case  MAX:
-    		    return { ...state, max:  action.payload };
-    	    default:
-    	    return  state;
-        }
-    }
-    export  default  counter;
-
-in store.js
-
-    //store.js
-
-    import { createStore } from  'redux';
-    import  counter  from  './reducers/index.js';
-    const  store = createStore(counter);
-    export  default  store;
-
-in counter.jsx
-
-    import  React  from  'react';
-    import { connect } from  'react-redux';
-    import { DoIncrement,DoDecrement,DoReset,DoStep,DOMax} from '../state/actions';
-
-    class  Counter  extends  React.Component {
-        render() {
-    	    let { count, step, max, dispatch } = this.props;
-    		    return (
-    			    <div  className="wrapper rwrapper">
-    				    <h1  className="counter">{`count by ${step} and max up to ${max}`}</h1>
-    				    <div  className="counterValue-div">
-    					    <h2  className="counterValue">{count}</h2>
-    				    </div>
-    				    <div  className="btn-wrapper1">
-    					    <button  className="inc btn"  onClick={() =>  dispatch(DoIncrement())}>
-    					    Increment
-    					    </button>
-    					    <button  className="dec btn"  onClick={() =>  dispatch(DoDecrement())}>
-    					    Decrement{' '}
-    					    </button>
-    					    <button  className="reset btn"  onClick={() =>  dispatch(DoReset())}>
-    					    Reset
-    					    </button>
-    				    </div>
-    				    <p  className="text">STEP</p>
-    				    <div  className="btn-wrapper2 rbtn">
-    					    {[5, 8, 10, 12, 14, 16].map(e  => (
-    						    <button
-    							    onClick={() =>  dispatch(DoStep(e))}
-    							    className={`btn1 ${step == e ? ' active' : ''} `}>
-    							    {e}
-    							</button>
-    					    ))}
-    				    </div>
-    				    <p  className="text">MAX</p>
-    				    <div  className="btn-wrapper2 rbtn-wrapper2">
-    					    {[50, 100, 150, 200, 250, 300].map(e  => (
-    					    <button
-    						    onClick={() =>  dispatch(DOMax(e))}
-    						    className={`btn1 ${max == e ? ' active' : ''} `} >
-    						    {e}
-    					    </button>
-    					    ))}
-    				    </div>
-    			    </div>
-    	    );
-        }
-    }
-
-    function  mapStateToProps(state) {
-        return { count:  state.count, step:  state.step, max:  state.max };
-
-    }
-    export  default  connect(mapStateToProps)(Counter);
-
-[The live demo of the counter app is here](https://counterinreactredux.netlify.com/)
+Finally, the connection is built between client and server. Now, they both can communicate with each other and share information. After successful connection, **browser (client)** sends a **request** to a **server** that I want this content. The server knows everything of what response it should send for every request. Hence, the **server responds back.** This response contains every information that you requested like web page, status-code, cache-control, etc. Now, the browser renders the content that has been requested.
+Each subsequent request completes a request/response cycle and is rendered in turn by the browser.
