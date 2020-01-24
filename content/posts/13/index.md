@@ -1,14 +1,15 @@
 ---
-title: Redux Flow
+title: Full-stack request, response flow
 author: Chaduvula Prasanth
-date: 2020-01-22
+date: 2020-01-23
 hero: ./images/requestresponsecycle.png
-excerpt: Learn the basics of redux, Actions, Reducers, Store, Data flow and also code a simple counter in react by using redux
+excerpt: What is HTTP request, what happens when you hit an enter url, request response cycle
 ---
 
-[The live demo of the counter app builted in react using redux is here](https://counterinreactredux.netlify.com/)
-
 # Redux Flow
+
+<img src="./images/requestresponsecycle.png"
+alt="Markdown Monster icon"
 
 ## Getting Started with Redux
 
