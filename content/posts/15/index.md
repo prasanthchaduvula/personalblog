@@ -3,7 +3,7 @@ title: Detailed understanding of rails and it's workflow
 author: Chaduvula Prasanth
 date: 2020-08-18
 hero: ./images/rorworkflow.png
-excerpt: This document helps in better understanding rails and it's basic work flow.
+excerpt: This document helps in better understanding of rails and it's basic workflow.
 ---
 
 ## Detailed understanding of rails. How it works
