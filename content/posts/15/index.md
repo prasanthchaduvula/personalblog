@@ -16,6 +16,7 @@ It's a open source and opinionated software.
 ### Rails philosophy - two major principles
 
 **1. DRY -** Don't Repeat Yourself means not writing the same information over and over again, so that our code becomes more maintainable, more extensible, and less buggy.
+
 **2. Convention Over Configuration -** It provides a default way of doing things. It's is opinionated gives you everything you need to create a web application and follows all the best practices. you’ll be more productive & gets things done faster.
 
 ### MVC Architecture

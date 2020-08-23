@@ -13,16 +13,16 @@ we will use jwt auth for token and [msg91](https://msg91.com/in/startups) . We w
 
 Our backend Node app folder stracture
 
-        bin
-        controllers
-        models
-        modules
-        node_modules
-        public
-        views
-        app.js
-        package.json
-        package-lock.json
+    bin
+    controllers
+    models
+    modules
+    node_modules
+    public
+    views
+    app.js
+    package.json
+    package-lock.json
 
 Install mongoose to connect database with you app
 
@@ -126,7 +126,7 @@ Install Msg91 sendotp package to handle send/verify otp
 
     npm i sendotp -save
 
-After installing these packages your `package.json` look like
+After installing these packages, your `package.json` look like
 
     {
         "name": "backend",
@@ -148,7 +148,6 @@ After installing these packages your `package.json` look like
     	    "sendotp": "^1.2.9"
         }
     }
-
 
 Let's go to our `controllers/userController.js`
 
