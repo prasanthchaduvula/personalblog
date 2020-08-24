@@ -26,7 +26,7 @@ Our backend Node app folder stracture
 
 Install mongoose to connect database with you app
 
-    npm i mongoose -save
+    npm i mongoose --save
 
 In your app.js
 
@@ -120,11 +120,11 @@ Before working on our user controller install these packages
 
 Install jsonwebtoken to use jwt token for user auth
 
-    npm i jsonwebtoken -save
+    npm i jsonwebtoken --save
 
 Install Msg91 sendotp package to handle send/verify otp
 
-    npm i sendotp -save
+    npm i sendotp --save
 
 After installing these packages, your `package.json` look like
 
@@ -251,7 +251,7 @@ Make component `Auth.jsx` inside `src` folder to handle user signup/signin based
 
 Install validator npm package to check whether the entered phone number is valid or not
 
-    npm i validator -save
+    npm i validator --save
 
 Here in the `Auth.jsx` we are handling both phone number and otp entry pages.
 
