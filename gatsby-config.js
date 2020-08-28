@@ -3,7 +3,7 @@ module.exports = {
     title: `Chaduvula Prasanth`,
     name: `Chaduvula Prasanth`,
     siteUrl: `https://chaduvulaprasanth.netlify.com/`,
-    description: `This is my description that will be used in the meta tags and important for search results`,
+    description: `Building products passionate about | student fellow Altcampus | full stack web developer | Into Edutech & agriculture`,
     hero: {
       heading: `let's explore the journey of life`,
       maxWidth: 652,
@@ -11,7 +11,7 @@ module.exports = {
     social: [
       {
         name: `twitter`,
-        url: `https://twitter.com/chaduvula98`,
+        url: `https://twitter.com/iamchaduvula`,
       },
       {
         name: `github`,
@@ -20,7 +20,7 @@ module.exports = {
       {
         name: `linkedin`,
         url: `https://www.linkedin.com/in/chaduvulaprasanth/`,
-      }
+      },
     ],
   },
   plugins: [
@@ -31,7 +31,7 @@ module.exports = {
         contentAuthors: "content/authors",
         basePath: "/",
         authorsPage: true,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
